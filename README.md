@@ -13,7 +13,8 @@
 > hubot nicovideo [video_id]
 ```
 
-### runner
+## Config
+### within runner script
 
 ```
 ### hubot-nicovideo
