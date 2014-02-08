@@ -1,5 +1,7 @@
 # hubot-nicovideo
 
+![Usage](screenshots/usage.png)
+
 ## Usage
 
 ```
