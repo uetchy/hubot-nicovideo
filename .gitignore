@@ -1,7 +1,6 @@
 /node_modules/
 /.env
+
+# OS Specific
 .DS_Store
 Thumbs.db
-
-/test/*.js
-/src/**/*.js

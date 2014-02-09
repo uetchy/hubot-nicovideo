@@ -22,17 +22,19 @@
     "grunt": "~0.4.2",
     "grunt-contrib-coffee": "~0.10.0",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-clean": "~0.5.0",
     "grunt-notify": "~0.2.17",
-    "dotenv": "~0.2.4"
+    "dotenv": "~0.2.4",
+    "grunt-simple-mocha": "~0.4.0",
+    "grunt-coffeelint": "0.0.8"
   },
-  "main": "./src/nicovideo",
+  "main": "lib/nicovideo",
   "engines": {
     "node": ">= 0.6"
   },
   "dependencies": {
     "request": "~2.33.0",
     "async": "~0.2.10",
-    "xml2js": "~0.4.1"
+    "xml2js": "~0.4.1",
+    "niconico": "0.0.6"
   }
 }

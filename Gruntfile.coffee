@@ -5,53 +5,55 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
 
-    # Cleaning
-    clean:
-      js:
-        src: 'src/**/*.js'
-        test: 'test/*.js'
+    # Coffee Lint
+    coffeelint:
+      app:
+        files:
+          src: [
+            'Gruntfile.coffee'
+            'src/**/*.coffee'
+            'test/**/*.coffee'
+          ]
 
     # Watching files
     watch:
-      coffee:
-        files: ['src/**/*.coffee', 'test/*.coffee'],
-        tasks: ['coffee']
+      scripts:
+        files: [
+          'Gruntfile.coffee'
+          'src/**/*.coffee'
+          'test/**/*.coffee'
+        ]
+        tasks: [
+          'coffeelint'
+          'coffee'
+          'simplemocha'
+        ]
+        options:
+          interrupt: yes
+
+    # Simple Mocha
+    simplemocha:
+      all:
+        src: ['test/**/*.coffee']
 
     # Coffee コンパイル
     coffee:
-      dist:
-        files: [
-          expand: true
-          cwd: 'src'
-          src: '*.coffee'
-          dest: 'src'
-          ext: '.js'
-        ]
-      src_lib:
-        files: [
-          expand: true
-          cwd: 'src/lib'
-          src: '*.coffee'
-          dest: 'src/lib'
-          ext: '.js'
-        ]
-      test:
-        files: [
-          expand: true
-          cwd: 'test'
-          src: '*.coffee'
-          dest: 'test'
-          ext: '.js'
-        ]
-      
+      compile:
+        files:
+          'lib/nicovideo.js': 'src/nicovideo.coffee'
+        options:
+          bare: yes
 
-
-
-  # Load global tasks
+  # Load tasks
   grunt.loadNpmTasks 'grunt-notify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-coffeelint'
+  grunt.loadNpmTasks 'grunt-simple-mocha'
 
   # Register tasks
-  grunt.registerTask 'default', ['watch']
+  grunt.registerTask 'default', [
+    'coffeelint'
+    'coffee'
+    'simplemocha'
+  ]
