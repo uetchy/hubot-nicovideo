@@ -79,14 +79,12 @@ Nicovideo.prototype =
       (_status, _thumbinfo, callback) ->
         meta.update _thumbinfo
         ev.emit('fetched', _status, meta)
-        msg.send(meta.title)
-        msg.send(meta.description)
 
         escapedTitle = meta.title.replace(/\//g, "／")
 
-        meta.filename = "#{escapedTitle}.#{meta.movie_type}"
-        meta.filepath = path.resolve(path.join(this.folder, meta.filename))
-        http_export(flvinfo.url, meta.filepath, callback)
+        filename = "#{escapedTitle}.#{meta.movie_type}"
+        meta.filepath = path.resolve(path.join(this.folder, filename))
+        http_export(meta.url, meta.filepath, callback)
 
       (callback) ->
         ev.emit('exported', meta.filepath)
