@@ -1,22 +1,22 @@
 {
   "name": "hubot-nicovideo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Yasuaki Uechi",
   "keywords": [
     "nicovideo",
     "hubot"
   ],
-  "homepage": "https://github.com/oame/hubot-nicovideo",
-  "description": "A plug-in for Hubot.",
+  "homepage": "https://github.com/uetchy/hubot-nicovideo",
+  "description": "A nicovideo plug-in for Hubot.",
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/oame/hubot-nicovideo/raw/master/LICENSE"
+      "url": "http://github.com/uetchy/hubot-nicovideo/raw/master/LICENSE"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/oame/hubot-nicovideo.git"
+    "url": "git://github.com/uetchy/hubot-nicovideo.git"
   },
   "devDependencies": {
     "coffee-script": ">=1.1.3",
